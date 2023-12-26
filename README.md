@@ -2,7 +2,7 @@
 ## Introduction
 This project is to use RAG technique to augment LLM (GPT-3.5) with additional data, store data in a vector database (Chroma) to retrieve, apply langchain framework to build this RAG application (chatbot). This is deployed with FastAPI and Docker.
 
-# Create api key to use OpenAI models
+## Create api key to use OpenAI models
 - Go to "https://platform.openai.com/" to sign up and create api key
 
 ## Run
