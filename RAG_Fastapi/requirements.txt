@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+langchain
+bs4
+openai
+chromadb
+tiktoken
