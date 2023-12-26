@@ -4,6 +4,7 @@ This project is to use RAG technique to augment LLM (GPT-3.5) with additional da
 
 ## Create api key to use OpenAI models
 - Go to "https://platform.openai.com/" to sign up and create api key
+- Them go to "RAG_Fastapi/model.py", fill in OPENAI_API_KEY at line 15
 
 ## Run
 ### Solution 1:
