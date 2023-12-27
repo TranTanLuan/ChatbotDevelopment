@@ -14,7 +14,9 @@ from langchain_core.runnables import RunnableParallel
 
 OPENAI_API_KEY = ""
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+# llm used to create responses
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+# use to split large texts into smaller texts
 text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000, chunk_overlap=200, add_start_index=True
     )
@@ -38,15 +40,19 @@ def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
 def model_pipeline(url_path: str, question_sentence: str):
+    #load data from url path
     loader = WebBaseLoader(
         web_paths=(url_path,),
     )
     docs = loader.load()
 
+    # split large texts into smaller texts (chunked data)
     all_splits = text_splitter.split_documents(docs)
 
+    # chunked data is converted into embeddings, these embeddings are stored into a vector database (chroma db)
     vectorstore = Chroma.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
 
+    # retriever is used to retrieve with user query (use similarity search), return a ranked vector list
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
 
     rag_chain_with_source = RunnableParallel(

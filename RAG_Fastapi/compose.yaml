@@ -7,8 +7,10 @@
 # You can add other services your application may depend on here, such as a
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
+# specify services (a server service) which docker compose will create and run
 services:
   server:
+  # specify docker compose will build image from dockerfile in current dir.
     build:
       context: .
     ports:

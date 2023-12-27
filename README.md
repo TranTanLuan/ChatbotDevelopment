@@ -23,4 +23,14 @@ uvicorn main:app --reload
 ```
 docker compose up --build
 ```
-- After run the above command, do the same as the remaining steps in Solution 1
+- After run the above command, do the same as the remaining steps in Solution 1  
+- When run "docker compose up --build", docker compose will do the below steps:
+    - Find a dockerfile in current dir
+    - Use dockerfile to build a new image with name is server
+    - Run the server service
+
+## How to code app from scratch
+- Code model with input, output
+- Code app (fastapi) use the above model
+- Run app with uvicorn
+- Optional: containerization the app, use docker init (create dockerfile, compose, ...), adjust them.
