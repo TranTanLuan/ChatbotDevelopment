@@ -12,7 +12,7 @@ from langchain.prompts import PromptTemplate
 from operator import itemgetter
 from langchain_core.runnables import RunnableParallel
 
-OPENAI_API_KEY = "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" #getpass()
+OPENAI_API_KEY = ""
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 text_splitter = RecursiveCharacterTextSplitter(
